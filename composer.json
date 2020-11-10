@@ -1,0 +1,7 @@
+{
+"require": {
+
+                "monolog/monolog": "^1.23",
+                "google/apiclient": "^2.0"
+    }
+    }
