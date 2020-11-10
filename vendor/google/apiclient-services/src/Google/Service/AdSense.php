@@ -66,12 +66,13 @@ class Google_Service_AdSense extends Google_Service
   /**
    * Constructs the internal representation of the AdSense service.
    *
-   * @param Google_Client $client
+   * @param Google_Client $client The client used to deliver requests.
+   * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://www.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://www.googleapis.com/';
     $this->servicePath = 'adsense/v1.4/';
     $this->batchPath = 'batch/adsense/v1.4';
     $this->version = 'v1.4';
@@ -101,13 +102,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'accounts',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -134,6 +135,10 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'tagPartner' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
               ),
             ),'list' => array(
               'path' => 'accounts/{accountId}/adclients',
@@ -144,13 +149,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -217,6 +222,10 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'includeInactive' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -224,10 +233,6 @@ class Google_Service_AdSense extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -351,13 +356,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -393,13 +398,13 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'boolean',
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -451,10 +456,6 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'currency' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
                 'dimension' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -465,6 +466,10 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'repeated' => true,
                 ),
+                'currency' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'locale' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -473,12 +478,16 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'integer',
                 ),
-                'metric' => array(
+                'useTimezoneReporting' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'sort' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
                 ),
-                'sort' => array(
+                'metric' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
@@ -486,10 +495,6 @@ class Google_Service_AdSense extends Google_Service
                 'startIndex' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'useTimezoneReporting' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -516,15 +521,15 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
                 'locale' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
                 'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'startIndex' => array(
                   'location' => 'query',
                   'type' => 'integer',
                 ),
@@ -614,13 +619,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -637,13 +642,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'adclients',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -695,6 +700,10 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'includeInactive' => array(
                   'location' => 'query',
                   'type' => 'boolean',
@@ -702,10 +711,6 @@ class Google_Service_AdSense extends Google_Service
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
               ),
             ),
@@ -732,13 +737,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -804,13 +809,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),
@@ -837,13 +842,13 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'includeInactive' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
-                ),
                 'maxResults' => array(
                   'location' => 'query',
                   'type' => 'integer',
+                ),
+                'includeInactive' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
                 ),
                 'pageToken' => array(
                   'location' => 'query',
@@ -916,6 +921,19 @@ class Google_Service_AdSense extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'startIndex' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'useTimezoneReporting' => array(
+                  'location' => 'query',
+                  'type' => 'boolean',
+                ),
+                'filter' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
                 'accountId' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -925,19 +943,14 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
+                'locale' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'dimension' => array(
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'filter' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'locale' => array(
-                  'location' => 'query',
-                  'type' => 'string',
                 ),
                 'maxResults' => array(
                   'location' => 'query',
@@ -952,14 +965,6 @@ class Google_Service_AdSense extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                   'repeated' => true,
-                ),
-                'startIndex' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'useTimezoneReporting' => array(
-                  'location' => 'query',
-                  'type' => 'boolean',
                 ),
               ),
             ),
@@ -1031,13 +1036,13 @@ class Google_Service_AdSense extends Google_Service
               'path' => 'savedadstyles',
               'httpMethod' => 'GET',
               'parameters' => array(
-                'maxResults' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
                 'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
+                ),
+                'maxResults' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
                 ),
               ),
             ),

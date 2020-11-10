@@ -19,6 +19,8 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
 {
   protected $collection_key = 'serviceAccounts';
   public $canIpForward;
+  protected $confidentialInstanceConfigType = 'Google_Service_Compute_ConfidentialInstanceConfig';
+  protected $confidentialInstanceConfigDataType = '';
   public $description;
   protected $disksType = 'Google_Service_Compute_AttachedDisk';
   protected $disksDataType = 'array';
@@ -31,8 +33,10 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   public $minCpuPlatform;
   protected $networkInterfacesType = 'Google_Service_Compute_NetworkInterface';
   protected $networkInterfacesDataType = 'array';
+  public $privateIpv6GoogleAccess;
   protected $reservationAffinityType = 'Google_Service_Compute_ReservationAffinity';
   protected $reservationAffinityDataType = '';
+  public $resourcePolicies;
   protected $schedulingType = 'Google_Service_Compute_Scheduling';
   protected $schedulingDataType = '';
   protected $serviceAccountsType = 'Google_Service_Compute_ServiceAccount';
@@ -49,6 +53,20 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   public function getCanIpForward()
   {
     return $this->canIpForward;
+  }
+  /**
+   * @param Google_Service_Compute_ConfidentialInstanceConfig
+   */
+  public function setConfidentialInstanceConfig(Google_Service_Compute_ConfidentialInstanceConfig $confidentialInstanceConfig)
+  {
+    $this->confidentialInstanceConfig = $confidentialInstanceConfig;
+  }
+  /**
+   * @return Google_Service_Compute_ConfidentialInstanceConfig
+   */
+  public function getConfidentialInstanceConfig()
+  {
+    return $this->confidentialInstanceConfig;
   }
   public function setDescription($description)
   {
@@ -138,6 +156,14 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   {
     return $this->networkInterfaces;
   }
+  public function setPrivateIpv6GoogleAccess($privateIpv6GoogleAccess)
+  {
+    $this->privateIpv6GoogleAccess = $privateIpv6GoogleAccess;
+  }
+  public function getPrivateIpv6GoogleAccess()
+  {
+    return $this->privateIpv6GoogleAccess;
+  }
   /**
    * @param Google_Service_Compute_ReservationAffinity
    */
@@ -151,6 +177,14 @@ class Google_Service_Compute_InstanceProperties extends Google_Collection
   public function getReservationAffinity()
   {
     return $this->reservationAffinity;
+  }
+  public function setResourcePolicies($resourcePolicies)
+  {
+    $this->resourcePolicies = $resourcePolicies;
+  }
+  public function getResourcePolicies()
+  {
+    return $this->resourcePolicies;
   }
   /**
    * @param Google_Service_Compute_Scheduling

@@ -18,13 +18,19 @@
 class Google_Service_Dataproc_ClusterConfig extends Google_Collection
 {
   protected $collection_key = 'initializationActions';
+  protected $autoscalingConfigType = 'Google_Service_Dataproc_AutoscalingConfig';
+  protected $autoscalingConfigDataType = '';
   public $configBucket;
   protected $encryptionConfigType = 'Google_Service_Dataproc_EncryptionConfig';
   protected $encryptionConfigDataType = '';
+  protected $endpointConfigType = 'Google_Service_Dataproc_EndpointConfig';
+  protected $endpointConfigDataType = '';
   protected $gceClusterConfigType = 'Google_Service_Dataproc_GceClusterConfig';
   protected $gceClusterConfigDataType = '';
   protected $initializationActionsType = 'Google_Service_Dataproc_NodeInitializationAction';
   protected $initializationActionsDataType = 'array';
+  protected $lifecycleConfigType = 'Google_Service_Dataproc_LifecycleConfig';
+  protected $lifecycleConfigDataType = '';
   protected $masterConfigType = 'Google_Service_Dataproc_InstanceGroupConfig';
   protected $masterConfigDataType = '';
   protected $secondaryWorkerConfigType = 'Google_Service_Dataproc_InstanceGroupConfig';
@@ -33,9 +39,24 @@ class Google_Service_Dataproc_ClusterConfig extends Google_Collection
   protected $securityConfigDataType = '';
   protected $softwareConfigType = 'Google_Service_Dataproc_SoftwareConfig';
   protected $softwareConfigDataType = '';
+  public $tempBucket;
   protected $workerConfigType = 'Google_Service_Dataproc_InstanceGroupConfig';
   protected $workerConfigDataType = '';
 
+  /**
+   * @param Google_Service_Dataproc_AutoscalingConfig
+   */
+  public function setAutoscalingConfig(Google_Service_Dataproc_AutoscalingConfig $autoscalingConfig)
+  {
+    $this->autoscalingConfig = $autoscalingConfig;
+  }
+  /**
+   * @return Google_Service_Dataproc_AutoscalingConfig
+   */
+  public function getAutoscalingConfig()
+  {
+    return $this->autoscalingConfig;
+  }
   public function setConfigBucket($configBucket)
   {
     $this->configBucket = $configBucket;
@@ -57,6 +78,20 @@ class Google_Service_Dataproc_ClusterConfig extends Google_Collection
   public function getEncryptionConfig()
   {
     return $this->encryptionConfig;
+  }
+  /**
+   * @param Google_Service_Dataproc_EndpointConfig
+   */
+  public function setEndpointConfig(Google_Service_Dataproc_EndpointConfig $endpointConfig)
+  {
+    $this->endpointConfig = $endpointConfig;
+  }
+  /**
+   * @return Google_Service_Dataproc_EndpointConfig
+   */
+  public function getEndpointConfig()
+  {
+    return $this->endpointConfig;
   }
   /**
    * @param Google_Service_Dataproc_GceClusterConfig
@@ -85,6 +120,20 @@ class Google_Service_Dataproc_ClusterConfig extends Google_Collection
   public function getInitializationActions()
   {
     return $this->initializationActions;
+  }
+  /**
+   * @param Google_Service_Dataproc_LifecycleConfig
+   */
+  public function setLifecycleConfig(Google_Service_Dataproc_LifecycleConfig $lifecycleConfig)
+  {
+    $this->lifecycleConfig = $lifecycleConfig;
+  }
+  /**
+   * @return Google_Service_Dataproc_LifecycleConfig
+   */
+  public function getLifecycleConfig()
+  {
+    return $this->lifecycleConfig;
   }
   /**
    * @param Google_Service_Dataproc_InstanceGroupConfig
@@ -141,6 +190,14 @@ class Google_Service_Dataproc_ClusterConfig extends Google_Collection
   public function getSoftwareConfig()
   {
     return $this->softwareConfig;
+  }
+  public function setTempBucket($tempBucket)
+  {
+    $this->tempBucket = $tempBucket;
+  }
+  public function getTempBucket()
+  {
+    return $this->tempBucket;
   }
   /**
    * @param Google_Service_Dataproc_InstanceGroupConfig

@@ -18,17 +18,19 @@
 class Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1Instance extends Google_Collection
 {
   protected $collection_key = 'provisionedResources';
+  public $consumerDefinedName;
   public $createTime;
   public $labels;
   public $maintenancePolicyNames;
   protected $maintenanceSchedulesType = 'Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSchedule';
   protected $maintenanceSchedulesDataType = 'map';
+  protected $maintenanceSettingsType = 'Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings';
+  protected $maintenanceSettingsDataType = '';
   public $name;
   public $producerMetadata;
   protected $provisionedResourcesType = 'Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1ProvisionedResource';
   protected $provisionedResourcesDataType = 'array';
-  protected $rolloutMetadataType = 'Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata';
-  protected $rolloutMetadataDataType = 'map';
+  public $slmInstanceTemplate;
   protected $sloMetadataType = 'Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata';
   protected $sloMetadataDataType = '';
   public $softwareVersions;
@@ -36,6 +38,14 @@ class Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvider
   public $tenantProjectId;
   public $updateTime;
 
+  public function setConsumerDefinedName($consumerDefinedName)
+  {
+    $this->consumerDefinedName = $consumerDefinedName;
+  }
+  public function getConsumerDefinedName()
+  {
+    return $this->consumerDefinedName;
+  }
   public function setCreateTime($createTime)
   {
     $this->createTime = $createTime;
@@ -74,6 +84,20 @@ class Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvider
   {
     return $this->maintenanceSchedules;
   }
+  /**
+   * @param Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+   */
+  public function setMaintenanceSettings(Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings $maintenanceSettings)
+  {
+    $this->maintenanceSettings = $maintenanceSettings;
+  }
+  /**
+   * @return Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1MaintenanceSettings
+   */
+  public function getMaintenanceSettings()
+  {
+    return $this->maintenanceSettings;
+  }
   public function setName($name)
   {
     $this->name = $name;
@@ -104,19 +128,13 @@ class Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvider
   {
     return $this->provisionedResources;
   }
-  /**
-   * @param Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
-   */
-  public function setRolloutMetadata($rolloutMetadata)
+  public function setSlmInstanceTemplate($slmInstanceTemplate)
   {
-    $this->rolloutMetadata = $rolloutMetadata;
+    $this->slmInstanceTemplate = $slmInstanceTemplate;
   }
-  /**
-   * @return Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1RolloutMetadata
-   */
-  public function getRolloutMetadata()
+  public function getSlmInstanceTemplate()
   {
-    return $this->rolloutMetadata;
+    return $this->slmInstanceTemplate;
   }
   /**
    * @param Google_Service_CloudFilestore_GoogleCloudSaasacceleratorManagementProvidersV1SloMetadata

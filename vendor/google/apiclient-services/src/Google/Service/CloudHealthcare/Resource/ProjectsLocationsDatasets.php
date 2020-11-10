@@ -28,12 +28,11 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
   /**
    * Creates a new health dataset. Results are returned through the Operation
    * interface which returns either an `Operation.response` which contains a
-   * Dataset or `Operation.error`. The metadata field type is OperationMetadata. A
-   * Google Cloud Platform project can contain up to 500 datasets across all
-   * regions. (datasets.create)
+   * Dataset or `Operation.error`. The metadata field type is OperationMetadata.
+   * (datasets.create)
    *
-   * @param string $parent The name of the project in which the dataset should be
-   * created (e.g., `projects/{project_id}/locations/{location_id}`).
+   * @param string $parent The name of the project where the server creates the
+   * dataset. For example, `projects/{project_id}/locations/{location_id}`.
    * @param Google_Service_CloudHealthcare_Dataset $postBody
    * @param array $optParams Optional parameters.
    *
@@ -50,11 +49,15 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
   /**
    * Creates a new dataset containing de-identified data from the source dataset.
    * The metadata field type is OperationMetadata. If the request is successful,
-   * the response field type is DeidentifySummary. If errors occur, details field
-   * type is DeidentifyErrorDetails. (datasets.deidentify)
+   * the response field type is DeidentifySummary. If errors occur, error is set.
+   * The LRO result may still be successful if de-identification fails for some
+   * DICOM instances. The new de-identified dataset will not contain these failed
+   * resources. Failed resource totals are tracked in Operation.metadata. Error
+   * details are also logged to Cloud Logging. For more information, see [Viewing
+   * logs](/healthcare/docs/how-tos/logging). (datasets.deidentify)
    *
-   * @param string $sourceDataset Source dataset resource name. (e.g.,
-   * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`).
+   * @param string $sourceDataset Source dataset resource name. For example,
+   * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
    * @param Google_Service_CloudHealthcare_DeidentifyDatasetRequest $postBody
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudHealthcare_Operation
@@ -70,8 +73,8 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
    * Deleting a dataset does not affect the sources from which the dataset was
    * imported (if any). (datasets.delete)
    *
-   * @param string $name The name of the dataset to delete (e.g.,
-   * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`).
+   * @param string $name The name of the dataset to delete. For example,
+   * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudHealthcare_HealthcareEmpty
    */
@@ -84,8 +87,8 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
   /**
    * Gets any metadata associated with a dataset. (datasets.get)
    *
-   * @param string $name The name of the dataset to read (e.g.,
-   * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`).
+   * @param string $name The name of the dataset to read. For example,
+   * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
    * @param array $optParams Optional parameters.
    * @return Google_Service_CloudHealthcare_Dataset
    */
@@ -103,6 +106,15 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
    * requested. See the operation documentation for the appropriate value for this
    * field.
    * @param array $optParams Optional parameters.
+   *
+   * @opt_param int options.requestedPolicyVersion Optional. The policy format
+   * version to be returned. Valid values are 0, 1, and 3. Requests specifying an
+   * invalid value will be rejected. Requests for policies with any conditional
+   * bindings must specify version 3. Policies without any conditional bindings
+   * may specify any valid value or leave the field unset. To learn which
+   * resources support conditions in their IAM policies, see the [IAM
+   * documentation](https://cloud.google.com/iam/help/conditions/resource-
+   * policies).
    * @return Google_Service_CloudHealthcare_Policy
    */
   public function getIamPolicy($resource, $optParams = array())
@@ -115,8 +127,8 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
    * Lists the health datasets in the current project.
    * (datasets.listProjectsLocationsDatasets)
    *
-   * @param string $parent The name of the project whose datasets should be listed
-   * (e.g., `projects/{project_id}/locations/{location_id}`).
+   * @param string $parent The name of the project whose datasets should be
+   * listed. For example, `projects/{project_id}/locations/{location_id}`.
    * @param array $optParams Optional parameters.
    *
    * @opt_param string pageToken The next_page_token value returned from a
@@ -134,7 +146,7 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
   /**
    * Updates dataset metadata. (datasets.patch)
    *
-   * @param string $name Output only. Resource name of the dataset, of the form
+   * @param string $name Resource name of the dataset, of the form
    * `projects/{project_id}/locations/{location_id}/datasets/{dataset_id}`.
    * @param Google_Service_CloudHealthcare_Dataset $postBody
    * @param array $optParams Optional parameters.
@@ -152,7 +164,8 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
   }
   /**
    * Sets the access control policy on the specified resource. Replaces any
-   * existing policy. (datasets.setIamPolicy)
+   * existing policy. Can return `NOT_FOUND`, `INVALID_ARGUMENT`, and
+   * `PERMISSION_DENIED` errors. (datasets.setIamPolicy)
    *
    * @param string $resource REQUIRED: The resource for which the policy is being
    * specified. See the operation documentation for the appropriate value for this
@@ -170,11 +183,9 @@ class Google_Service_CloudHealthcare_Resource_ProjectsLocationsDatasets extends 
   /**
    * Returns permissions that a caller has on the specified resource. If the
    * resource does not exist, this will return an empty set of permissions, not a
-   * NOT_FOUND error.
-   *
-   * Note: This operation is designed to be used for building permission-aware UIs
-   * and command-line tools, not for authorization checking. This operation may
-   * "fail open" without warning. (datasets.testIamPermissions)
+   * `NOT_FOUND` error. Note: This operation is designed to be used for building
+   * permission-aware UIs and command-line tools, not for authorization checking.
+   * This operation may "fail open" without warning. (datasets.testIamPermissions)
    *
    * @param string $resource REQUIRED: The resource for which the policy detail is
    * being requested. See the operation documentation for the appropriate value

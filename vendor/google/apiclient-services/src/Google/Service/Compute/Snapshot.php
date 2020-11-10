@@ -19,9 +19,11 @@ class Google_Service_Compute_Snapshot extends Google_Collection
 {
   protected $collection_key = 'storageLocations';
   public $autoCreated;
+  public $chainName;
   public $creationTimestamp;
   public $description;
   public $diskSizeGb;
+  public $downloadBytes;
   public $id;
   public $kind;
   public $labelFingerprint;
@@ -49,6 +51,14 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   {
     return $this->autoCreated;
   }
+  public function setChainName($chainName)
+  {
+    $this->chainName = $chainName;
+  }
+  public function getChainName()
+  {
+    return $this->chainName;
+  }
   public function setCreationTimestamp($creationTimestamp)
   {
     $this->creationTimestamp = $creationTimestamp;
@@ -72,6 +82,14 @@ class Google_Service_Compute_Snapshot extends Google_Collection
   public function getDiskSizeGb()
   {
     return $this->diskSizeGb;
+  }
+  public function setDownloadBytes($downloadBytes)
+  {
+    $this->downloadBytes = $downloadBytes;
+  }
+  public function getDownloadBytes()
+  {
+    return $this->downloadBytes;
   }
   public function setId($id)
   {

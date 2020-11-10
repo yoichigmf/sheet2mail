@@ -20,7 +20,6 @@ class Google_Service_CloudHealthcare_FhirStore extends Google_Collection
   protected $collection_key = 'streamConfigs';
   public $disableReferentialIntegrity;
   public $disableResourceVersioning;
-  public $enableHistoryImport;
   public $enableUpdateCreate;
   public $labels;
   public $name;
@@ -28,6 +27,7 @@ class Google_Service_CloudHealthcare_FhirStore extends Google_Collection
   protected $notificationConfigDataType = '';
   protected $streamConfigsType = 'Google_Service_CloudHealthcare_StreamConfig';
   protected $streamConfigsDataType = 'array';
+  public $version;
 
   public function setDisableReferentialIntegrity($disableReferentialIntegrity)
   {
@@ -44,14 +44,6 @@ class Google_Service_CloudHealthcare_FhirStore extends Google_Collection
   public function getDisableResourceVersioning()
   {
     return $this->disableResourceVersioning;
-  }
-  public function setEnableHistoryImport($enableHistoryImport)
-  {
-    $this->enableHistoryImport = $enableHistoryImport;
-  }
-  public function getEnableHistoryImport()
-  {
-    return $this->enableHistoryImport;
   }
   public function setEnableUpdateCreate($enableUpdateCreate)
   {
@@ -104,5 +96,13 @@ class Google_Service_CloudHealthcare_FhirStore extends Google_Collection
   public function getStreamConfigs()
   {
     return $this->streamConfigs;
+  }
+  public function setVersion($version)
+  {
+    $this->version = $version;
+  }
+  public function getVersion()
+  {
+    return $this->version;
   }
 }

@@ -44,12 +44,13 @@ class Google_Service_Clouderrorreporting extends Google_Service
   /**
    * Constructs the internal representation of the Clouderrorreporting service.
    *
-   * @param Google_Client $client
+   * @param Google_Client $client The client used to deliver requests.
+   * @param string $rootUrl The root URL used for requests to the service.
    */
-  public function __construct(Google_Client $client)
+  public function __construct(Google_Client $client, $rootUrl = null)
   {
     parent::__construct($client);
-    $this->rootUrl = 'https://clouderrorreporting.googleapis.com/';
+    $this->rootUrl = $rootUrl ?: 'https://clouderrorreporting.googleapis.com/';
     $this->servicePath = '';
     $this->batchPath = 'batch';
     $this->version = 'v1beta1';
@@ -90,6 +91,22 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
+                'pageToken' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'groupId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serviceFilter.service' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
                 'serviceFilter.version' => array(
                   'location' => 'query',
                   'type' => 'string',
@@ -101,22 +118,6 @@ class Google_Service_Clouderrorreporting extends Google_Service
                 'timeRange.period' => array(
                   'location' => 'query',
                   'type' => 'string',
-                ),
-                'groupId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'serviceFilter.service' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageToken' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
                 ),
               ),
             ),'report' => array(
@@ -148,28 +149,11 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'type' => 'string',
                   'required' => true,
                 ),
-                'timeRange.period' => array(
+                'pageToken' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'alignment' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'groupId' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                  'repeated' => true,
-                ),
-                'serviceFilter.service' => array(
-                  'location' => 'query',
-                  'type' => 'string',
-                ),
-                'pageSize' => array(
-                  'location' => 'query',
-                  'type' => 'integer',
-                ),
-                'serviceFilter.version' => array(
+                'alignmentTime' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -181,7 +165,20 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'alignmentTime' => array(
+                'pageSize' => array(
+                  'location' => 'query',
+                  'type' => 'integer',
+                ),
+                'groupId' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                  'repeated' => true,
+                ),
+                'serviceFilter.version' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'serviceFilter.service' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
@@ -189,7 +186,11 @@ class Google_Service_Clouderrorreporting extends Google_Service
                   'location' => 'query',
                   'type' => 'string',
                 ),
-                'pageToken' => array(
+                'timeRange.period' => array(
+                  'location' => 'query',
+                  'type' => 'string',
+                ),
+                'alignment' => array(
                   'location' => 'query',
                   'type' => 'string',
                 ),
